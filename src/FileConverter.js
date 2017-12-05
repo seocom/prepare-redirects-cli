@@ -62,7 +62,15 @@ class FileConverter {
             return null;
         }
 
-        return `${sourceURL}?$ ${destinationURL}`;
+        let output = sourceURL;
+
+        if(sourceURL[sourceURL.length - 1] === '/') {
+            output += "?";
+        }
+
+        output += `$ ${destinationURL}`;
+
+        return output;
     }
 
     /**
