@@ -13,5 +13,8 @@
   },
   "bin": {
     "prepare-redirects": "src/cli.js"
+  },
+  "devDependencies": {
+    "mocha": "^4.0.1"
   }
 }

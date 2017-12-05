@@ -4,10 +4,13 @@ class FileConverter {
 
     /**
      * 
-     * @param {String} fileName 
+     * @param {String} file Either the filename or a string to convert.
+     * @param {Boolean} isFileContents Optional, defaults to false. If true,
+     *  treats the file parameter like the file contents, not the file name.
      */
-    constructor(fileName) {
-        this.fileName = fileName;
+    constructor(file, isFileContents = false) {
+        this.file = file;
+        this.isFileContents = isFileContents;
         this._result = null;
     }
 
@@ -20,7 +23,7 @@ class FileConverter {
      */
     convert(skipFirst = true) {
         let result = "";
-        const fileContents = fs.readFileSync(this.fileName).toString();
+        const fileContents = this._getFileContents();
         const splitFileContents = fileContents.split("\n");
         let line = "";
         let convertedLine = "";
@@ -74,6 +77,14 @@ class FileConverter {
         } else {
             return null;
         }
+    }
+
+    _getFileContents() {
+        if(this.isFileContents) {
+            return this.file;
+        }
+
+        return fs.readFileSync(this.file).toString();
     }
 
     get result() {
