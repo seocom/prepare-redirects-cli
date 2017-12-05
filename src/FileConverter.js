@@ -23,20 +23,29 @@ class FileConverter {
      */
     convert(skipFirst = true) {
         let result = "";
-        const fileContents = this._getFileContents();
-        const splitFileContents = fileContents.split("\n");
         let line = "";
         let convertedLine = "";
 
+        // Get the file contents and split it into an array of lines, each line
+        // representing a single redirect.
+        const fileContents = this._getFileContents();
+        const splitFileContents = fileContents.split("\n");
+
+        // Loop through the lines, converting each one if possible.
         for(let x = skipFirst ? 1 : 0; x < splitFileContents.length; x++) {
             line = splitFileContents[x];
 
+            // If the line is empty, we can safely skip it. It may by a typo or
+            // the final end line.
             if(line.trim() === "") {
                 continue;
             }
 
             convertedLine = this._convertLine(line);
 
+            // _convertLine() may return null if it couldn't convert the line 
+            // successfully, so if it does, just log out the line that had an
+            // issue.
             if(convertedLine) {
                 result += this._convertLine(line) + "\n";
             } else {
@@ -64,6 +73,8 @@ class FileConverter {
 
         let output = sourceURL;
 
+        // We only want to add a "?" to the end of the URL to make the final
+        // forward-slash optional, not part of the domain.
         if(sourceURL[sourceURL.length - 1] === '/') {
             output += "?";
         }

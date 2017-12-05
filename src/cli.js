@@ -5,6 +5,7 @@ const args = require("really-simple-args")();
 const FileConverter = require("./FileConverter");
 const basePath = process.cwd();
 
+// Grab the filename from the arguments.
 const filename = args.getArgumentByIndex(0);
 
 // If the user didn't specify a filename, notify them and quit.
