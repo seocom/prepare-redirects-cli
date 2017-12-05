@@ -1,0 +1,11 @@
+{
+  "name": "prepare-redirects-cli",
+  "version": "0.1.0",
+  "description": "Simple CLI tool for converting CSV files into WPEngine compliant TXT files",
+  "main": "src/cli.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "SEO dot com",
+  "license": "ISC"
+}
