@@ -16,5 +16,23 @@
   },
   "devDependencies": {
     "mocha": "^4.0.1"
-  }
+  },
+  "directories": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/seocom/prepare-redirects-cli.git"
+  },
+  "keywords": [
+    "wpengine",
+    "wordpress",
+    "redirects",
+    "mass",
+    "redirect"
+  ],
+  "bugs": {
+    "url": "https://github.com/seocom/prepare-redirects-cli/issues"
+  },
+  "homepage": "https://github.com/seocom/prepare-redirects-cli#readme"
 }
