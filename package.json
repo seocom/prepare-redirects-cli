@@ -1,10 +1,10 @@
 {
-  "name": "prepare-redirects-cli",
+  "name": "@seocom/prepare-redirects-cli",
   "version": "1.0.0",
   "description": "Simple CLI tool for converting CSV files into WPEngine compliant TXT files",
   "main": "src/cli.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha"
   },
   "author": "SEO dot com",
   "license": "ISC",
@@ -12,7 +12,7 @@
     "really-simple-args": "^1.0.1"
   },
   "bin": {
-    "prepare-redirects": "src/cli.js"
+    "wpengine-prepare-redirects": "src/cli.js"
   },
   "devDependencies": {
     "mocha": "^4.0.1"

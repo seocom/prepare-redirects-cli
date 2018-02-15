@@ -5,7 +5,8 @@ by WPEngine so that they can mass import it.
 
 See
 [Section #3 of this WPEngine article](https://wpengine.com/support/redirect/)
-for more information.
+for more information. This tool is used to generate the `.txt` files required 
+for the mass import outliend there.
 
 *Note:* Will skip the first line, under the assumption that it is a header line.
 
@@ -13,33 +14,29 @@ for more information.
 
   - [Installation](#installation)
   - [Usage](#usage)
+  - [CSV Formatting](#csv-formatting)
   - [Development](#development)
     - [Unit Tests](#unit-tests)
 
 ## Installation
 
-First, clone this project to your local machine.
-
-Once that's complete, `cd` into the project, and run the following:
+This tool is available via [NPM](https://www.npmjs.com). You can install it
+with:
 
 ```
-npm i
-npm link
+npm i -g @seocom/prepare-redirects-cli
 ```
-
-The first line will install all dependencies, and the second line will install
-the CLI tool so you can access it from your terminal.
 
 ## Usage
 
 ```
-prepare-redirects [filename.extension]
+wpengine-prepare-redirects [filename.extension]
 ```
 
 **Example:**
 
 ```
-prepare-redirects redirects.csv
+wpengine-prepare-redirects redirects.csv
 ```
 
 Will look in the current working directory for a file that matches the given
@@ -55,6 +52,15 @@ prepare-redirects redirects.csv
 
 Would produce a file in the same directory called `redirects.txt`, which can be
 sent to WPEngine.
+
+## CSV Formatting
+
+At present, there are a few required formatting conditions for the CSV file for
+this tool to work as expected.
+
+  - It must use newline (`\n`) characters to separate rows
+  - It must have the source URL in the 0th column, and the destination on the 1st
+  - The first row must not contain a valid redirect, as it will be ignored
 
 ## Development
 
